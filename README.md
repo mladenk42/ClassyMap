@@ -76,7 +76,7 @@ python translit-dict.py ../data/en-ru/yacle.train.freq.500.en-ru.tsv en ru ../da
 
 ### 2. Running the semi-supervised model 
 ```
-python go.py --train_dict trainfile.tsv --in_src in_src_embeddings.vec --in_tar in_tar_embeddings.vec --src_lid "en" --tar_lid "hr" --out_src out_src_embeddings.vec --out_tar out_tar_embeddings.vec --model_filename modefile.pickle --idstring experiment_id
+python classymap.py --train_dict trainfile.tsv --in_src in_src_embeddings.vec --in_tar in_tar_embeddings.vec --src_lid "en" --tar_lid "hr" --out_src out_src_embeddings.vec --out_tar out_tar_embeddings.vec --model_filename modefile.pickle --idstring experiment_id
 ```
 
 for example
