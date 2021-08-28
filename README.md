@@ -1,4 +1,4 @@
-### NOTE: instructions still in testing
+### NOTE: instructions and code still in testing and not runnable out of the box
 
 # ClassyMap
 Tool for aligning word vectors and inducing bilingual lexicons.
@@ -30,6 +30,12 @@ We also recommend you cite the original VecMap paper that this code heavily reli
 ```
 
 ### Quickstart:
+##### NOTE: after checking out the repo, we recommend using a python virtual environment, testing was done using anaconda:
+```
+conda create -n "cm-env" python=3.6.9
+conda activate "cm-env"
+pip install -r src/requirements.txt
+```
 ##### NOTE: the following steps can be applied to any language pair, as a working example we will use English and Croatian.
 
 ### 1. Get the embedding files
