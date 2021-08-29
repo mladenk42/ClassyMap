@@ -104,7 +104,7 @@ python eval.py "../embeddings/wiki.200k.en-hr-aligned.EN.vec" "../embeddings/wik
 
 #### 3.2. With reranking
 
-add  ```"--supervised --model model_path --src_lid sl --tar_lid tl --idstring id"``` to all the above command
+add  ```"--super --model model_path --src_lid sl --tar_lid tl --idstring id"``` to all the above command
 
 ```model_path``` is the model file you generated in the step 2
 
@@ -113,7 +113,7 @@ add  ```"--supervised --model model_path --src_lid sl --tar_lid tl --idstring id
 An example of expanding the command from step 3.1. is as follows:
 
 ```
-python eval.py "../embeddings/wiki.200k.en-hr-aligned.EN.vec" "../embeddings/wiki.200k.en-hr-aligned.HR.vec" -d ../data/en-hr/yacle.test.freq.2k.en-hr.tsv --cuda  --supervised --model "./models/ENHR-model.pickle --src_lid "en" --tar_lid "hr" --idstring ENHRFASTTEXT
+python eval.py "../embeddings/wiki.200k.en-hr-aligned.EN.vec" "../embeddings/wiki.200k.en-hr-aligned.HR.vec" -d ../data/en-hr/yacle.test.freq.2k.en-hr.tsv --cuda  --super --model "./models/ENHR-model.pickle" --src_lid "en" --tar_lid "hr" --idstring ENHRFASTTEXT
 ```
 
 ##### Note: Regardless of using reranking or not. You can add "--output_file filename.txt" to dump the generated candidates into an output file of the following format:
