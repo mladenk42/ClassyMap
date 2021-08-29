@@ -82,7 +82,7 @@ python classymap.py --train_dict trainfile.tsv --in_src in_src_embeddings.vec --
 for example
 
 ```
-python classymap.py --train_dict "../data/en-hr/yacle.train.freq.500.en-hr.tsv" --in_src "../embeddings/wiki.200k.en.vec" --in_tar "../embeddings/wiki.200k.hr.vec " --src_lid "en" --tar_lid "hr" --out_src "../embeddings/wiki.200k.en-hr-aligned.EN.vec" --out_tar "../embeddings/wiki.200k.en-hr-aligned.HR.vec" --model_filename "./models/ENHR-model.pickle" --idstring ENHRFASTTEXT
+python classymap.py --train_dict "../data/en-hr/yacle.train.freq.500.en-hr.tsv" --in_src "../embeddings/wiki.200k.en.vec" --in_tar "../embeddings/wiki.200k.hr.vec" --src_lid "en" --tar_lid "hr" --out_src "../embeddings/wiki.200k.en-hr-aligned.EN.vec" --out_tar "../embeddings/wiki.200k.en-hr-aligned.HR.vec" --model_filename "./models/ENHR-model.pickle" --idstring ENHRFASTTEXT
 ```
 
 ##### Note: type ```python classymap.py --help``` for many more options, but the default values for all of them should give reasonable perfomance.
