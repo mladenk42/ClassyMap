@@ -1,5 +1,3 @@
-### NOTE: instructions and code still in testing and not runnable out of the box
-
 # ClassyMap
 Tool for aligning word vectors and inducing bilingual lexicons.
 
