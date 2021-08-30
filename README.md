@@ -124,5 +124,5 @@ src_word_2 -->	first_target_candidate 	second_target_candidate ....
 ```
 
 The candidates are tab separated. 
-You can specifiy ```"--output_file_TOPK K"``` to limit the number of candidates, e.g. ```"--output_file_topk 500"``` to limit each line in the file to the top 500 candidates.
+You can specifiy ```"--output_top_K K"``` to limit the number of candidates, e.g. ```"--output_top_K 500"``` to limit each line in the file to the top 500 candidates.
 
