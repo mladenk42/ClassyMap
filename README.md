@@ -82,7 +82,7 @@ python classymap.py --train_dict trainfile.tsv --in_src in_src_embeddings.vec --
 for example
 
 ```
-python classymap.py --train_dict "../data/en-hr/yacle.train.freq.500.en-hr.tsv" --in_src "../embeddings/wiki.200k.en.vec" --in_tar "../embeddings/wiki.200k.hr.vec " --src_lid "en" --tar_lid "hr" --out_src "../embeddings/wiki.200k.en-hr-aligned.EN.vec" --out_tar "../embeddings/wiki.200k.en-hr-aligned.HR.vec" --model_filename "./models/ENHR-model.pickle" --idstring ENHRFASTTEXT
+python classymap.py --train_dict "../data/en-hr/yacle.train.freq.500.en-hr.tsv" --in_src "../embeddings/wiki.200k.en.vec" --in_tar "../embeddings/wiki.200k.hr.vec" --src_lid "en" --tar_lid "hr" --out_src "../embeddings/wiki.200k.en-hr-aligned.EN.vec" --out_tar "../embeddings/wiki.200k.en-hr-aligned.HR.vec" --model_filename "./models/ENHR-model.pickle" --idstring ENHRFASTTEXT
 ```
 
 ##### Note: type ```python classymap.py --help``` for many more options, but the default values for all of them should give reasonable perfomance.
@@ -104,7 +104,7 @@ python eval.py "../embeddings/wiki.200k.en-hr-aligned.EN.vec" "../embeddings/wik
 
 #### 3.2. With reranking
 
-add  ```"--supervised --model model_path --src_lid sl --tar_lid tl --idstring id"``` to all the above command
+add  ```"--super --model model_path --src_lid sl --tar_lid tl --idstring id"``` to all the above command
 
 ```model_path``` is the model file you generated in the step 2
 
@@ -113,7 +113,7 @@ add  ```"--supervised --model model_path --src_lid sl --tar_lid tl --idstring id
 An example of expanding the command from step 3.1. is as follows:
 
 ```
-python eval.py "../embeddings/wiki.200k.en-hr-aligned.EN.vec" "../embeddings/wiki.200k.en-hr-aligned.HR.vec" -d ../data/en-hr/yacle.test.freq.2k.en-hr.tsv --cuda  --supervised --model "./models/ENHR-model.pickle --src_lid "en" --tar_lid "hr" --idstring ENHRFASTTEXT
+python eval.py "../embeddings/wiki.200k.en-hr-aligned.EN.vec" "../embeddings/wiki.200k.en-hr-aligned.HR.vec" -d ../data/en-hr/yacle.test.freq.2k.en-hr.tsv --cuda  --super --model "./models/ENHR-model.pickle" --src_lid "en" --tar_lid "hr" --idstring ENHRFASTTEXT
 ```
 
 ##### Note: Regardless of using reranking or not. You can add "--output_file filename.txt" to dump the generated candidates into an output file of the following format:
