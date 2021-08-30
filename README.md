@@ -36,6 +36,8 @@ pip install -r src/requirements.txt
 ```
 ##### NOTE: the following steps can be applied to any language pair, as a working example we will use English and Croatian.
 
+##### NOTE: we recommend running steps 2 and 3 with cuda, without it they are both somewhat slower and not well tested
+
 ### 1. Get the embedding files
 
 Run the ```./embeddings/dl-embeddings-all.sh``` script, to download only embeddings used in the example below (en and hr). Alternatively, run the ```./embeddings/dl-embeddings-all.sh``` script, to download all embeddings used in the paper
