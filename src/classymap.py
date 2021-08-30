@@ -10,7 +10,6 @@ from scipy.sparse import csr_matrix, hstack as sparse_hstack
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 import pickle
 import time
-from svm import SVM
 from random import randrange
 from art_wrapper import run_supervised_alignment
 from sklearn.utils import shuffle

@@ -24,10 +24,9 @@ import numpy as np
 import sys
 
 import pickle
-from final import *
+from classymap import *
 import gc
 
-from transliterate import translit
 
 BATCH_SIZE = 250
 
@@ -179,6 +178,7 @@ def main():
     parser.add_argument('--super', action='store_true', help='use a supervised model to rerank top candidates')
     parser.add_argument('--model', help = "path to supervised model for reranking", type=str)
     parser.add_argument('--output_file', help = "Path to output file (contains a list of target words generated for each source word), if empty no output file will be generated. Default is empty.", type=str, default="")
+    parser.add_argument('--output_top_K', help = "Number of top neighbours per source word written to the output file. Default is 250.", type=int, default=250)
     
     parser.add_argument('--src_lid', help = "Source language id", type=str)
     parser.add_argument('--tar_lid', help = "Target language id", type=str)
@@ -311,7 +311,7 @@ def main():
       ortpath = "./cache/ortho_nn_" + args.src_lid + "-" + args.tar_lid + "-" + args.idstring + "-dict.pickle"
       ornn = OrthoNNProvider(ortpath, src_word2ind, trg_word2ind, src_ind2word, trg_ind2word)
 
-      translation_tmp = supervised_reranking2(translation, model_filename, src_ind2word, trg_ind2word, src_word2ind, trg_word2ind, rgs.K, src2trg, args.threshold, ornn, args.num_ort)
+      translation_tmp = supervised_reranking2(translation, model_filename, src_ind2word, trg_ind2word, src_word2ind, trg_word2ind, args.K, src2trg, args.threshold, ornn, args.num_ort)
       positions = [np.min([translation_tmp[i].index(x) + 1 for x in src2trg[i]]) for i in src] 
       translation = translation_tmp
       #p1 = len([p for p in positions if p == 1]) / len(positions)
@@ -344,7 +344,8 @@ def main():
             line = ""
             for sw in translation:
                 line += src_ind2word[sw] + " --> "
-                for tw in translation[sw].tolist()[0:250]:
+                nn_list = translation[sw] if args.super else translation[sw].tolist()
+                for tw in nn_list[0:args.output_top_K]:
                     line += "\t" + trg_ind2word[tw] 
                 line += "\n"
             of.write(line)
